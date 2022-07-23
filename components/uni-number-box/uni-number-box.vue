@@ -56,7 +56,7 @@
 				this.inputValue = +val;
 			},
 			inputValue(newVal, oldVal) {
-				if (+newVal !== +oldVal) {
+				 if (+newVal !== +oldVal && Number(newVal) && String(newVal).indexOf('.') === -1) {
 					this.$emit("change", newVal);
 				}
 			}
@@ -101,9 +101,11 @@
 				return scale;
 			},
 			_onBlur(event) {
-				let value = event.detail.value;
+				// let value = event.detail.value;
+				let value = parseInt(event.detail.value);
 				if (!value) {
-					// this.inputValue = 0;
+					// 如果转化之后的结果为 NaN，则给定默认值为 1
+					    this.inputValue = 1;
 					return;
 				}
 				value = +value;
