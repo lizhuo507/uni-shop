@@ -1,7 +1,5 @@
 <template>
   <view>
-
-
       <!-- 选择收货地址的盒子 -->
       <view class="address-choose-box" v-if="JSON.stringify(address) === '{}'">
         <button type="primary" size="mini" class="btnChooseAddress" @click="chooseAddress">请选择收货地址+</button>
@@ -42,7 +40,7 @@
     data() {
       return {
         // 收货地址
-        address: {},
+        // address: {},
       };
     },
     methods: {
@@ -83,7 +81,7 @@
         // 2. 用户成功的选择了收货地址
         if (err === null && succ.errMsg === 'chooseAddress:ok') {
           // 为 data 里面的收货地址对象赋值
-          // this.address = succ
+          // this.address = succ 
           // 3.3 调用 Store 中提供的 updateAddress 方法，将 address 保存到 Store 里面
           this.updateAddress(succ)
         }
